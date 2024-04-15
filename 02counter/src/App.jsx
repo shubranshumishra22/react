@@ -4,10 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  
+//use hook to display in DOM/UI
   let [counter, setCounter] = useState(15);
 
   const addValue = () => {
-    if (counter < 20) {
+    if (counter < 20) { //printing values till 20
       setCounter(counter + 1);
       console.log(counter);
     } else {
