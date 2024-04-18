@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 function App() {
   const [length, setLength] = useState(8);
@@ -9,6 +9,7 @@ function App() {
   //useRef hook
   
   const passwordGenerator = useCallback(() => {
+    let  generatedPass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     if (numAllowed) {
@@ -18,22 +19,16 @@ function App() {
       str += "!@#$%^&*()_+?{}";
     }
 
-    let generatedPassword = "";
-    for (let i = 0; i < length; i++) {
-      let charIndex = Math.floor(Math.random() * str.length);
-      generatedPassword += str.charAt(charIndex);
+    for (let i = 0; i <= length; i++) {
+      let char = Math.floor(Math.random() * str.length + 1);
+      generatedPass += str.charAt(char);
     }
 
-    setPass(generatedPassword);
+    setPass(generatedPass)
 
   }, [length, numAllowed, charAllowed]);
 
-  const copyPassword = () => {
-    navigator.clipboard.writeText(pass);
-    alert("Password copied to clipboard!");
-  };
-
-  return (
+return (
     <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
       <h1 className='text-white text-center my-3'>Password generator</h1>
       <div className="flex shadow rounded-lg overflow-hidden mb-4">
@@ -77,7 +72,7 @@ function App() {
               defaultChecked={charAllowed}
               id="characterInput"
               onChange={() => {
-                  setCharAllowed((prev) => !prev )
+                  setCharAllowed((prev) => !prev) //call back fired because the event needs to get to it's prev values(tic and untic)
               }}
               />
            <label htmlFor="characterInput">Characters</label>
@@ -85,7 +80,7 @@ function App() {
         </div>
       </div>
  
-  );
+  )
 }
 
 export default App;
