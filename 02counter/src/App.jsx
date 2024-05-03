@@ -1,25 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'; // Import React and useState
 
 function App() {
-<<<<<<< HEAD
-  //using of hook to display in DOM/UI
-  let [counter, setCounter] = useState(15);
+  // Use useState hook to manage state
+  const [counter, setCounter] = useState(15);
 
+  // Define functions to handle increment and decrement
   const addValue = () => {
-    if (counter < 20) {  //printing only till 20
-=======
-  
-//use hook to display in DOM/UI
-  let [counter, setCounter] = useState(15);
-
-  const addValue = () => {
-    if (counter < 20) { //printing values till 20
->>>>>>> 8b0edb4a8e6335a78583a3697cb490573f3506cf
+    if (counter < 20) {
       setCounter(counter + 1);
-      console.log(counter);
     } else {
       console.log("Counter exceeds 20");
     }
@@ -28,7 +16,6 @@ function App() {
   const reduceValue = () => {
     if (counter > 0) {
       setCounter(counter - 1);
-      console.log(counter);
     } else {
       console.log("Counter value is negative");
     }
@@ -39,13 +26,13 @@ function App() {
       <h1>Shubranshu and React</h1>
       <h2>Counter Value: {counter}</h2>
 
-      <button className='addButton' 
-      onClick={addValue}>
+      {/* Attach event handlers to buttons */}
+      <button className='addButton' onClick={addValue}>
         Add Value
       </button>
-      <button className='removeButton'
-      onClick={reduceValue}>
-        Remove Value</button>
+      <button className='removeButton' onClick={reduceValue}>
+        Remove Value
+      </button>
       <p>Footer</p>
     </>
   );
