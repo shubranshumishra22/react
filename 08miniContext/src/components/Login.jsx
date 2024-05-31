@@ -7,7 +7,7 @@ function Login() {
     const [pass, setPass] = useState('')
 
     const {setUser} = useContext(UserContext)
-
+    // the above part is used for the UserContext hook, or to throw it to the userContext.js
 
   const handleSubmit = (e) => {
     e.preventDefault()   //don't want and url going through post or anything
