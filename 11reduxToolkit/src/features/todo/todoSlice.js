@@ -17,7 +17,7 @@ export const todoSlice = createSlice({
         addTodo: (state, action) => {
             const todo = {
                 id: nanoid(), 
-                text: action.payload  //to get/input text from users
+                text: action.payload  //to get/input/values text from users
             }
             //updating state
             state.todos.push(todo)

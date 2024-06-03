@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {} from
+import {addTodo} from '../features/todo/todoSlice'
 
 
 //add happens with dispatch 
@@ -15,7 +15,8 @@ function AddTodo(){
     const addTodoHandler = (e) => {
         e.preventDefault()
         //using dispatch
-         dispatch()
+         dispatch(addTodo(input))  //calling reducer
+         setInput('')   //to clean the form
     }
 return (
 
